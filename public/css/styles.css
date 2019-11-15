@@ -1,3 +1,31 @@
-body {
-    background-color: yellow;
+.sub-titulo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-peli {
+    position: relative;
+    font-weight: bolder;
+}
+
+.card-body {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.card-header {
+    background-color: #c3c3c380;
+    color: #000;
+}
+
+.fondo-peli {
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    opacity: 0.3;
+    z-index: 1;
+}
+.fondo-peli img{
+    margin: auto;
 }
