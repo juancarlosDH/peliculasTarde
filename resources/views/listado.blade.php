@@ -3,7 +3,7 @@
 @section('main')
     @forelse ($pelis as $peli)
         <div class="">
-            {{ $peli }}
+            {{ $peli->title }}
         </div>
     @empty
         <div class="">

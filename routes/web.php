@@ -15,15 +15,9 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/movies', function () {
-    $pelis = ['Avatar', 'Up', 'It', 'ET'];
+Route::get('/movies', 'MoviesController@index');
 
-    return view('listado', compact('pelis'));
-});
-
-Route::get('/movie/{id?}', function ($id='') {
-    return $id;
-});
+Route::get('/movie/{id}',"MoviesController@detail");
 
 
 
