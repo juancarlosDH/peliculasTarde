@@ -7,11 +7,8 @@
   <article class="nuevas" id="peliculas">
       <div class="peliculas">
 
-            <h2>La Pelicula</h2>
-                <div class="form-group">
-                  <label for="title">Titulo:</label>
-                  {{$movie->title}}
-                </div>
+            <h2>{{$movie->title}}</h2>
+            <img src="/storage/{{$movie->poster}}" alt="" width="100%">
                 <div class="form-group">
                   <label for="rating">Rating:</label>
                   {{$movie->rating}}
@@ -27,15 +24,36 @@
 
                 <div class="form-group">
                   <label for="release_date">Fecha de Lanzamiento:</label>
-                  {{$movie->release_date}}
+                  {{$movie->releaseDate()}}
                 </div>
 
                 <div class="form-group">
                   <label for="genre_id">Genero:</label>
 
-                  {{$movie->getGenreName()}}
+                  {{ $movie->getGenreName() }}
                 </div>
 
+                <div class="form-group">
+                  <label for="genre_id">Actores:</label>
+
+                  @forelse($movie->actors as $actor)
+                     {{ $actor->first_name }}
+                  @empty
+                    No hay Actores
+                  @endforelse
+                </div>
+
+                <div class="">
+                    <form class="" action="/movies/{{$movie->id}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <a class="btn btn-secondary" href="/movies/">Volver</a>
+
+                        <a class="btn btn-success" href="/movies/{{$movie->id}}/edit">Editar</a>
+
+                        <button type="submit" class="btn btn-danger" name="button">Eliminar</button>
+                    </form>
+                </div>
 
       </div>
 

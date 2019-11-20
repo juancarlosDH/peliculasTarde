@@ -29,6 +29,14 @@
              </nav>
          </div>
 
+         <div class="">
+             @if (session('status'))
+                <div class="alert alert-{{session('operation')}}">
+                    {{ session('status') }}
+                </div>
+            @endif
+         </div>
+
          <div class="card-group">
 
 @foreach ($pelis as $peli)
@@ -37,12 +45,12 @@
       <img class="fondo-peli" src="images/default.png">
       <div class="card-header">{{ $peli->title }}</div>
       <div class="card-body">
-        <p class="card-text">{{ $peli->genre_id }}</p>
+        <p class="card-text">{{ $peli->getGenreName() }}</p>
         <p class="card-text">Rating: {{  $peli->rating }}</p>
         <p class="card-text">Awards: {{  $peli->awards }}</p>
         <p class="card-text">
           <a class="btn btn-primary" href="/movies/{{$peli->id}}">Ver Mas</a>
-          <a class="btn btn-success" href="modificarPelicula.php?id={{  $peli['id'] }}">Editar</a>
+          <a class="btn btn-success" href="/movies/{{$peli->id}}/edit">Editar</a>
           </p>
       </div>
     </div>
