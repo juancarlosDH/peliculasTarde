@@ -35,9 +35,12 @@
           </ul>
           <ul class="derechos navigation-ul">
             <a href="/search"><li>Buscar</li></a>
+        @auth
             <a href="#"><li>Mi Lista</li></a>
+        @else
             <a href="/login"><li>Login</li></a>
             <a href="/register"><li>Registro</li></a>
+        @endauth
           </ul>
         </nav>
       </header>
