@@ -31,12 +31,17 @@
           <ul class="izquierdos navigation-ul">
             <a href="#"><li>Recientes</li></a>
             <a href="/movies"><li>Películas</li></a>
-            <a href="#"><li>Series</li></a>
+            <a href="/series"><li>Series</li></a>
+            <a href="/genres"><li>Géneros</li></a>
           </ul>
           <ul class="derechos navigation-ul">
-            <a href="/search"><li>Buscar</li></a>
+            <a href="#"><li>Buscar</li></a>
         @auth
-            <a href="#"><li>Mi Lista</li></a>
+            <a href="/my-list"><li>Mi Lista</li></a>
+            <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><li>Logout<li></a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="dislpay:none">
+                @csrf
+            </form>
         @else
             <a href="/login"><li>Login</li></a>
             <a href="/register"><li>Registro</li></a>

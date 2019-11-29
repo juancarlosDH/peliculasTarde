@@ -12,7 +12,7 @@
           <div class="titulo-nav">
                <h3>Peliculas en Digital Movies</h3>
                <div>
-             @if(Auth::user()->admin)
+             @if(Auth::user() && Auth::user()->admin)
                  <a href="/movies/new" class="btn btn-primary">Nueva</a>
              @endif
                </div>
@@ -44,15 +44,26 @@
 @foreach ($pelis as $peli)
 
     <div class="card card-peli">
-      <img class="fondo-peli" src="images/default.png">
-      <div class="card-header">{{ $peli->title }}</div>
+      <img class="fondo-peli" src="/images/default.png">
+      <div class="card-header">
+          <span class="card-title">{{ $peli->title }}</span>
+          <form class="form-add-my-list" action="/my-list/{{$peli->id}}" method="post">
+              @csrf
+              <button type="submit" class="no-button">
+                  <img src="/images/heart_no_like.png" class="like">
+              </button>
+          </form>
+          </a>
+      </div>
       <div class="card-body">
         <p class="card-text">{{ $peli->getGenreName() }}</p>
         <p class="card-text">Rating: {{  $peli->rating }}</p>
         <p class="card-text">Awards: {{  $peli->awards }}</p>
         <p class="card-text">
           <a class="btn btn-primary" href="/movies/{{$peli->id}}">Ver Mas</a>
+      @if(Auth::user() && Auth::user()->admin)
           <a class="btn btn-success" href="/movies/{{$peli->id}}/edit">Editar</a>
+      @endif
           </p>
       </div>
     </div>

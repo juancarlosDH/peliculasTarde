@@ -37,7 +37,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    public function myList()
+    {
+        return $this->belongsToMany(Movie::class, 'movie_user');
+    }
 
 
 

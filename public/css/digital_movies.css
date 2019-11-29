@@ -228,6 +228,34 @@ select, option{
     color:black;
 }
 
+.form-add-my-list{
+    width: 15%;
+}
+
+img.like{
+    width: 100%
+}
+
+.no-button{
+    border: none;
+    background: transparent;
+}
+
+.card-header{
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+}
+.card-header span{
+    display: block;
+    width: 85%;
+}
+
+span.card-title{
+    color: black;
+    font-weight: bold;
+}
+
 @media( max-width:768px ){
   .container{
     width: 100vw;
