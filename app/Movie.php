@@ -35,6 +35,11 @@ class Movie extends Model
         return $this->belongsToMany(Actor::class, 'actor_movie', 'movie_id', 'actor_id');
     }
 
+    public function soyFavoritoDe()
+    {
+        return $this->hasMany(Actor:class, 'favourite_movie_id');
+    }
+
     public function releaseDate()
     {
         return $this->release_date->format('Y-m-d');

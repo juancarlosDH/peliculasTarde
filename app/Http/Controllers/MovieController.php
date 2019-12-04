@@ -157,6 +157,15 @@ class MovieController extends Controller
         if ($movie->poster && file_exists($image_path)) {
             unlink($image_path);
         }
+        //elimino los actor_movie
+        // TODO: hacerlo
+
+        //elimino de los que es favorito
+        $movie->soyFavoritoDe->forEach(function(Actor $actor){
+            $actor->favorite_movie_id = null;
+            $actor->save();
+        });
+        
         //la elimino de la bd
         $movie->delete();
 
