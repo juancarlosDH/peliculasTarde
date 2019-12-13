@@ -37,7 +37,7 @@ class Movie extends Model
 
     public function soyFavoritoDe()
     {
-        return $this->hasMany(Actor:class, 'favourite_movie_id');
+        return $this->hasMany(Actor::class, 'favourite_movie_id');
     }
 
     public function releaseDate()

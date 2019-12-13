@@ -1,6 +1,7 @@
 @extends('movies_layout')
 
 @section('main')
+<script src="/js/series_new.js"></script>
 
 <div class="row">
 <div class="col-md-6 offset-md-3">
@@ -8,7 +9,7 @@
       <div class="peliculas">
 
             <h2>Alta de Serie</h2>
-            <form method="post" action="" enctype="multipart/form-data">
+            <form method="" id="form-serie-new" action="" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                   <label for="title">Titulo</label>
@@ -62,6 +63,4 @@
 </div>
 </div>
 
-<script src="/js/datos.js"></script>
-<script src="/js/series.js"></script>
 @endsection

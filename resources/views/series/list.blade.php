@@ -41,7 +41,7 @@
             @endif
          </div>
 
-         <div class="card-group">
+         <div class="card-group series-list">
 
           </div>
 

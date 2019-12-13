@@ -17,7 +17,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/movies', 'Api\MovieController@all');
-Route::get('/genres', 'Api\GenreController@all');
 Route::get('/series', 'Api\SerieController@all');
+Route::post('/series/new', 'Api\SerieController@save');
+
+Route::get('/genres', 'Api\GenreController@all');
+
+
+
+
+
+
+
+
+Route::get('/movies', 'Api\MovieController@all');
 Route::get('/actors', 'Api\ActorController@all');
