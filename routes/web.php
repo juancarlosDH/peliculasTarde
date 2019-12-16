@@ -3,6 +3,7 @@
 Route::get('/', 'MovieController@home');
 
 Route::get('/movies', 'MovieController@index');
+Route::get('/movies/search', 'MovieController@search');
 Route::get('/movies/new', 'MovieController@new')->middleware(['auth', 'is_admin']);
 Route::post('/movies/new', 'MovieController@create')->middleware(['auth', 'is_admin']);
 Route::delete('/movies/{id}', 'MovieController@delete')->middleware(['auth', 'is_admin']);

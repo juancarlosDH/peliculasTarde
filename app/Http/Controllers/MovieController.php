@@ -165,7 +165,7 @@ class MovieController extends Controller
             $actor->favorite_movie_id = null;
             $actor->save();
         });
-        
+
         //la elimino de la bd
         $movie->delete();
 
@@ -174,7 +174,32 @@ class MovieController extends Controller
             ->with('operation', 'warning');
     }
 
+    public function search(Request $req)
+    {
+        $genres = Genre::all();
+        //coloco las movies como vacias para solo usar el filtro
+        $movies = [];
+        //si hay el filtro de genero entoces empiezo a filtrar por ese;
+        if ($req->input('genre_id')) {
+            $movies = Movie::where('genre_id', '=', $req->input('genre_id'));
+        }
+        //si envie el input del titulo entonces lo filtro
+        if ($req->input('title')) {
+            //si ya estaba el filtro de genero, le agrego el filtro de titulo
+            if ($movies) {
+                $movies->where('title', 'like', '%' . $req->input('title') . '%');
+            } else {
+                //sino solo filtro por el titulo
+                $movies = Movie::where('title', 'like', '%' . $req->input('title') . '%');
+            }
+        }
+        //si hay filtro entonces obtengo los datos con el metodo get
+        if ($movies) {
+            $movies = $movies->get();
+        }
 
+        return view('movies/search', compact(['genres', 'movies']));
+    }
 
 
 }

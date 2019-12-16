@@ -35,7 +35,7 @@
             <a href="/genres"><li>Géneros</li></a>
           </ul>
           <ul class="derechos navigation-ul">
-            <a href="#"><li>Buscar</li></a>
+            <a href="/movies/search"><li>Buscar</li></a>
         @auth
             <a href="/my-list"><li>Mi Lista</li></a>
             <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><li>Logout<li></a>

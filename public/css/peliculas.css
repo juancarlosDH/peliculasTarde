@@ -40,6 +40,7 @@ input{
   .card-group>.card {
     -ms-flex: 1 0 0%;
     flex: 1 0 33.33%;
+    max-width: 33%
   }
   .titulo-nav{
     display:flex;
