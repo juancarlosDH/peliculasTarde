@@ -36,11 +36,10 @@ GET  | register               | Auth\RegisterController@showRegistrationForm
 POST | register               | Auth\RegisterController@register
 */
 
+Route::get('/google/login', 'Auth\LoginController@redirectToGoogle');
+Route::get('/google/redireccion', 'Auth\LoginController@handleGoogleCallback');
+
 //Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-
 
 
 

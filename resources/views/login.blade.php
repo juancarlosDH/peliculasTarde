@@ -39,6 +39,7 @@
 
               </form>
 
+              @include('partials/buttons_login')
           </div>
 
       </article>
